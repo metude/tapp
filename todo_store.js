@@ -13,6 +13,7 @@ function loadTodo() {
 	var todoArray = getTodoItems();
 	var ul = document.getElementById("todo");
 	if (todoArray != null) {
+		ul.innerHTML='';
 		for (var i = 0; i < todoArray.length; i++) {
 			var li = document.createElement("li");
 			li.dataset.order = i;
@@ -28,9 +29,10 @@ function loadTodo() {
 
 function removeItem(item){
 	var todoArray = getStoreArray("todo");
-	//delete todoArray[parseInt(item)];
-	todoArray.splice(item,item++);
+	//delete todoArray[parseInt(hmmm)];
+	todoArray.splice(item,1);
 	localStorage.setItem("todo", JSON.stringify(todoArray));
+	loadTodo();
 }
 
 function getTodoItems() {
